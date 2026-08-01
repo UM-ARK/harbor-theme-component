@@ -778,7 +778,7 @@ body.login-page {
     // 標題 → 微軟按鈕 → 帳號提示 → 其他次要按鈕（密鑰）
     &::before {
       order: 1;
-      content: "推薦：使用澳大 Microsoft 帳號登入\A\A建議每次登入都請使用下方按鈕\A登入時可選擇或切換 Microsoft 帳號";
+      content: "推薦：使用澳大 Microsoft 帳號登入\AUmer認證\A\A建議每次登入都請使用下方按鈕\A登入時可選擇或切換 Microsoft 帳號";
       display: block;
       white-space: pre-line;
       text-align: center;

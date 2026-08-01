@@ -613,3 +613,319 @@ html body #main-outlet {
 .title-voting {
   padding-left: 14px;
 }
+
+// =============================================================================
+// ARK /login — Microsoft Office 365 + 論壇帳號（僅限登入頁）
+// =============================================================================
+
+body.login-page {
+  // 降低 Air Theme #main-outlet 在登入頁的干擾
+  #main-outlet {
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: none;
+    width: 100%;
+    padding: 1.25rem 1rem 2.5rem !important;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .login-fullpage {
+    min-height: calc(100vh - var(--header-offset, 4rem));
+    justify-content: flex-start;
+    padding-block: 0.5rem 2rem;
+  }
+
+  .login-body.has-alt-auth,
+  .login-body:has(.login-right-side) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+    gap: 0;
+  }
+
+  .login-welcome-header {
+    order: -20 !important;
+    width: 100% !important;
+    max-width: 420px;
+    text-align: center !important;
+    margin: 0 0 1rem !important;
+    padding: 0.5rem 0.25rem 0 !important;
+
+    .login-title {
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .waving-hand {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  // Microsoft / 第三方登入區置頂
+  .login-right-side {
+    order: -10 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto 0.75rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+    position: relative;
+
+    // 取消 Discourse 預設分隔線，改作區塊標題與說明
+    &::before {
+      content: none !important;
+      display: none !important;
+    }
+  }
+
+  #login-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+    height: auto !important;
+    gap: 0.65rem !important;
+    white-space: normal !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    &::before {
+      content: "使用澳大 Microsoft 帳號登入\A\A建議每次登入都請使用此按鈕\A登入時可選擇或切換 Microsoft 帳號";
+      display: block;
+      white-space: pre-line;
+      text-align: center;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.15rem;
+      padding: 0.85rem 0.75rem 0.35rem;
+      border-radius: 12px 12px 0 0;
+      background: rgb(var(--secondary-rgb), 0.72);
+    }
+
+    &::after {
+      content: "提示：ab12345@um.edu.mo 是澳大的微軟賬號";
+      display: block;
+      text-align: center;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      font-weight: 500;
+      color: var(--primary-high, var(--primary));
+      background: rgb(255, 185, 0, 0.18);
+      border: 1px solid rgb(255, 185, 0, 0.45);
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      margin-top: 0.15rem;
+    }
+
+    .btn {
+      width: 100% !important;
+      flex: none !important;
+      margin: 0 !important;
+      justify-content: center;
+      white-space: normal;
+    }
+  }
+
+  // Microsoft Office 365 主入口
+  .btn-social.microsoft_office365 {
+    background-color: #ffb900 !important;
+    color: #1a1a1a !important;
+    border: none !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    padding: 0.95rem 1rem !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    box-shadow: 0 4px 14px rgb(0, 0, 0, 0.12) !important;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease,
+      filter 0.15s ease;
+
+    .d-icon,
+    svg {
+      color: #1a1a1a !important;
+    }
+
+    &:hover,
+    &:focus {
+      filter: brightness(1.03);
+      box-shadow: 0 6px 18px rgb(0, 0, 0, 0.16) !important;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      filter: brightness(0.98);
+    }
+  }
+
+  // 論壇本機帳號區（與微軟入口區隔）
+  .login-left-side {
+    order: 0 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0.5rem auto 0 !important;
+    padding: 1rem 0.85rem 1.25rem !important;
+    box-sizing: border-box;
+    background: rgb(var(--secondary-rgb), 0.88);
+    border-radius: 14px;
+    border: 1px solid rgb(var(--primary-rgb), 0.08);
+
+    &::before {
+      content: "論壇註冊用戶入口與微軟賬號入口不互通";
+      display: block;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: var(--danger, #d05454);
+      background: rgb(208, 84, 84, 0.08);
+      border: 1px solid rgb(208, 84, 84, 0.22);
+      border-radius: 10px;
+      padding: 0.6rem 0.7rem;
+      margin: 0 0 1rem;
+    }
+  }
+
+  .login-form,
+  #login-form {
+    margin-top: 0.25rem !important;
+    padding: 0 !important;
+  }
+
+  .input-group {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      border-radius: 10px;
+      min-height: 2.75rem;
+    }
+  }
+
+  #forgot-password-link {
+    color: #e6a700 !important;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      color: #c48e00 !important;
+      text-decoration: underline;
+    }
+  }
+
+  .login-page-cta {
+    margin-top: 0.75rem;
+
+    &__buttons {
+      width: 100%;
+
+      .login-page-cta__login,
+      button {
+        width: 100% !important;
+        border-radius: 10px;
+        font-weight: 700;
+        min-height: 2.75rem;
+      }
+    }
+
+    &__no-account-yet {
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+  }
+
+  // 桌面加寬與留白
+  @media screen and (width >= 768px) {
+    #main-outlet {
+      padding: 2rem 1.5rem 3rem !important;
+    }
+
+    .login-fullpage {
+      justify-content: center;
+      padding-block: 1.5rem 3rem;
+    }
+
+    .login-body.has-alt-auth,
+    .login-body:has(.login-right-side),
+    .login-welcome-header,
+    .login-right-side,
+    .login-left-side {
+      max-width: 440px !important;
+    }
+
+    #login-buttons::before {
+      font-size: 0.98rem;
+      padding: 1rem 1rem 0.4rem;
+    }
+
+    #login-buttons::after {
+      font-size: 0.88rem;
+      padding: 0.7rem 0.9rem;
+    }
+
+    .btn-social.microsoft_office365 {
+      font-size: 1.15rem !important;
+      padding: 1.05rem 1.1rem !important;
+    }
+
+    .login-left-side {
+      padding: 1.15rem 1.1rem 1.4rem !important;
+
+      &::before {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.85rem;
+      }
+    }
+  }
+
+  // 手機更緊湊
+  @media screen and (width <= 480px) {
+    #main-outlet {
+      padding: 0.75rem 0.65rem 2rem !important;
+    }
+
+    .login-welcome-header {
+      margin-bottom: 0.65rem !important;
+
+      .login-title {
+        font-size: 1.15rem;
+      }
+    }
+
+    #login-buttons::before {
+      font-size: 0.86rem;
+      padding: 0.7rem 0.55rem 0.25rem;
+    }
+
+    #login-buttons::after {
+      font-size: 0.78rem;
+      padding: 0.55rem 0.6rem;
+    }
+
+    .btn-social.microsoft_office365 {
+      font-size: 0.98rem !important;
+      padding: 0.85rem 0.75rem !important;
+    }
+
+    .login-left-side {
+      padding: 0.85rem 0.65rem 1rem !important;
+
+      &::before {
+        font-size: 0.75rem;
+        padding: 0.55rem 0.55rem;
+      }
+    }
+  }
+}

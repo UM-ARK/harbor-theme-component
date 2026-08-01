@@ -615,6 +615,55 @@ html body #main-outlet {
 }
 
 // =============================================================================
+// ARK site overrides（自訂覆蓋）
+// =============================================================================
+
+// 主題列表去陰影（覆蓋 Air 預設卡片陰影）
+.full-width .contents .topic-list .topic-list-body .topic-list-item {
+  // border-radius: 0.2em;
+  // border: none;
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+// html .background-container { background: none; } — 已註解略過，避免關掉 Air 藍色波紋背景
+
+// 關閉註冊按鈕
+button.sign-up-button {
+  display: none;
+}
+
+// 個人資料頁 Location / Region 隱藏
+html #user-content .pref-location {
+  display: none;
+}
+
+html #user-content .region {
+  display: none;
+}
+
+#new-create-topic {
+  background-color: #2764d0 !important;
+
+  svg {
+    color: #fafcff !important;
+  }
+
+  span {
+    color: #fafcff !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #new-create-topic {
+    background-color: #19b2ea !important;
+  }
+}
+
+// =============================================================================
 // ARK /login — Microsoft Office 365 + 論壇帳號（僅限登入頁）
 // =============================================================================
 
